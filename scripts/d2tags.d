@@ -90,8 +90,10 @@ void convertJSONObject(in string tagFile, ref string[] tagLines,
     else parentName = parentJsonObject["name"].str;
 
     switch (jsonObject["kind"].str) {
+    // Ignore the following
     case "import":
     case "mixin":
+    case "destructor":
         break;
     case "alias":
 	newLine ~= "t\t" ~ affiliation(parentJsonObject);
